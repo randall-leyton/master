@@ -17,13 +17,17 @@ public class ModeloUsuario extends Model{
       
             
     static public void RecorrerArray(){
+        
         Usuarios.clear();
+        
+            
         
         Usuario a1= new Usuario("admin@gmail.com","123456");        
         Usuario a2= new Usuario("r.leyton@gmail.com", "75171616");
-        
+        Usuario a3= new Usuario("abcde@gmail.com", "123456");
         Usuarios.add(a1);
         Usuarios.add(a2);
+        Usuarios.add(a3);
         
     }
     
@@ -32,13 +36,15 @@ public class ModeloUsuario extends Model{
         RecorrerArray();
         boolean band= false;
         int i=0;
-        while(band==false && i<Usuarios.size()){
+        while(band == false & i<Usuarios.size()){
             if( user.getEmail().compareTo(Usuarios.get(i).getEmail())==0  &&
                     user.getClave().compareTo(Usuarios.get(i).getClave())==0 ){
                 System.out.println(Usuarios.get(i).getEmail()  +"*********"+Usuarios.get(i).getClave() );
+                
                 band= true;
             }else{
                 band=false;
+                i++;
             }
         }
         return band;
