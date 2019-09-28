@@ -26,12 +26,21 @@ public class ControllerLogin extends Controller{
         long status=0 ;
         return status;
     }
-    public long RecueperarClave(String usuario, String clave1, String clave2){
+    public long RecueperarClave(String usuario, String clave1){
         long status = 0;
         Usuario user =new Usuario(usuario,clave1);
-            status = ModeloUsuario.RecuperarContra(user, clave2);
+            status = ModeloUsuario.RecuperarContra(user);
             System.out.println(status);
             return status;
+    }
+    public boolean Registrar (String nombre , String Apellido, String Email,String Clave){
+        boolean band= false;
+        Usuario user=new Usuario (Email, Clave ,Apellido,nombre);
+        System.out.println("hola controler");
+        band = ModeloUsuario.Registrar(user);
+       
+        
+        return band;
     }
     
     

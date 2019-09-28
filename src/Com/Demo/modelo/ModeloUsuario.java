@@ -7,6 +7,7 @@ package Com.Demo.modelo;
 
 import Com.Demo.modelo.entity.Usuario;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,9 +19,6 @@ public class ModeloUsuario extends Model{
             
     static public void RecorrerArray(){
         
-        Usuarios.clear();
-        
-            
         
         Usuario a1= new Usuario("admin@gmail.com","123456");        
         Usuario a2= new Usuario("r.leyton@gmail.com", "75171616");
@@ -60,15 +58,41 @@ public class ModeloUsuario extends Model{
 //        }
 //        return band;
 //    }
-    static public long RecuperarContra(Usuario user, String clave){
+    static public long RecuperarContra(Usuario user){
+        RecorrerArray();
         long status =0;
-        if(user.getEmail().compareTo("admin@gmail.com")== 0){
-            user.setClave(clave);
-            status=500;
-            System.out.println(status+"if modelo");
-        }else{
-            status=0;
+        int i=0;
+        while(status == 0 && i<Usuarios.size() ){
+            System.out.println("fuera del if");
+            if (Usuarios.get(i).getEmail().compareTo(user.getEmail())==0){
+                Usuarios.get(i).setClave(user.getClave());
+                status=500;
+                System.out.println(status);
+            }else{
+                i++;
+                System.out.println("else");
+            }
+            
         }
         return status ;
     }
+    
+    static public boolean Registrar(Usuario user){
+        RecorrerArray();
+        boolean validado= true;
+        int i=0;
+        while(validado==true && i<Usuarios.size()){
+            if (Usuarios.get(i).getEmail().compareTo(user.getEmail())==0){
+                validado= false;
+            }else {
+                i++;
+                if (i==Usuarios.size()){
+                    Usuarios.add(user);
+                    i++;
+                }
+            }
+        }
+        return validado;
+    }
+        
 }

@@ -37,7 +37,7 @@ public class VistaRecuperarContraseña extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jbtnAceptar = new javax.swing.JButton();
-        jbtnCancelar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jtxtUser = new javax.swing.JTextField();
         jClave1 = new javax.swing.JPasswordField();
@@ -59,7 +59,12 @@ public class VistaRecuperarContraseña extends javax.swing.JFrame {
             }
         });
 
-        jbtnCancelar.setText("cancelar");
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("confir clave:");
 
@@ -81,10 +86,6 @@ public class VistaRecuperarContraseña extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jbtnAceptar)
-                                .addGap(65, 65, 65)
-                                .addComponent(jbtnCancelar))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel2)
@@ -93,11 +94,15 @@ public class VistaRecuperarContraseña extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jtxtUser)
                                     .addComponent(jClave1)
-                                    .addComponent(jClave2, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)))))
+                                    .addComponent(jClave2, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jbtnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(135, 135, 135)
                         .addComponent(jLabel5)))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +124,7 @@ public class VistaRecuperarContraseña extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtnAceptar)
-                    .addComponent(jbtnCancelar))
+                    .addComponent(btnSalir))
                 .addGap(60, 60, 60))
         );
 
@@ -138,7 +143,7 @@ public class VistaRecuperarContraseña extends javax.swing.JFrame {
         clave2= this.jClave2.getText();
         long status;
         if(clave1.equals(clave2)){
-             status = this.cRecuperarClave.RecueperarClave(usuario, clave1,clave2);
+             status = this.cRecuperarClave.RecueperarClave(usuario, clave1);
              if(status==0){
                  JOptionPane.showMessageDialog(this, "error al cambiar contraseña");
              }else{
@@ -151,6 +156,11 @@ public class VistaRecuperarContraseña extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jbtnAceptarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,6 +198,7 @@ public class VistaRecuperarContraseña extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalir;
     private javax.swing.JPasswordField jClave1;
     private javax.swing.JPasswordField jClave2;
     private javax.swing.JLabel jLabel1;
@@ -196,7 +207,6 @@ public class VistaRecuperarContraseña extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JButton jbtnAceptar;
-    private javax.swing.JButton jbtnCancelar;
     private javax.swing.JTextField jtxtUser;
     // End of variables declaration//GEN-END:variables
 }

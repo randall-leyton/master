@@ -30,6 +30,14 @@ public class Usuario {
         this.tipo = tipo;
     }
 
+    public Usuario(String email, String clave, String apellidos, String nombre) {
+        this.email = email;
+        this.clave = clave;
+        this.apellidos = apellidos;
+        this.nombre = nombre;
+    }
+    
+
     public Usuario(String email, String clave) {
         this.email = email;
         this.clave = clave;

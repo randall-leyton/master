@@ -159,13 +159,16 @@ public class VistaLogin extends javax.swing.JFrame {
 
     private void jBtnLogUpsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnLogUpsActionPerformed
         // TODO add your handling code here:
+        RegistrarUsuario a=new RegistrarUsuario();
+        a.setVisible(true);
+        
     }//GEN-LAST:event_jBtnLogUpsActionPerformed
 
     private void jBtnRecuperarClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnRecuperarClaveActionPerformed
         // TODO add your handling code here:
         VistaRecuperarContraseña a= new VistaRecuperarContraseña();
         a.setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_jBtnRecuperarClaveActionPerformed
 
     private void jPwrdClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPwrdClaveActionPerformed
