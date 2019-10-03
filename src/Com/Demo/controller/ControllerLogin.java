@@ -5,6 +5,7 @@
  */
 package Com.Demo.controller;
 
+import Com.Demo.modelo.ModelMetodosMysql;
 import Com.Demo.modelo.ModeloUsuario;
 import Com.Demo.modelo.entity.Usuario;
 
@@ -38,9 +39,12 @@ public class ControllerLogin extends Controller{
         Usuario user=new Usuario (Email, Clave ,Apellido,nombre);
         System.out.println("hola controler");
         band = ModeloUsuario.Registrar(user);
-       
-        
         return band;
+    }
+    public int RegistrarMysql(String nombre , String apellido, String Email, String clave){
+        int resultado;
+        resultado = ModelMetodosMysql.guardar(nombre, apellido, Email, clave);
+        return resultado;
     }
     
     

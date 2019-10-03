@@ -6,6 +6,7 @@
 package Com.Demo.view;
 
 import Com.Demo.controller.ControllerLogin;
+import Com.Demo.modelo.ModelMetodosMysql;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +24,7 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         cLogin=new ControllerLogin();
         this.setLocationRelativeTo(null);
     }
+    ModelMetodosMysql metodos=new ModelMetodosMysql();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -154,14 +156,23 @@ public class RegistrarUsuario extends javax.swing.JFrame {
         apellido =this.txtApellido.getText();
         Email= this.txtEmail.getText();
         Clave= this.txtClave.getText();
-        boolean band;
-        band=this.cLogin.Registrar(nombre, apellido, Email, Clave);
-        if (band){
-            JOptionPane.showMessageDialog(null,  "registro exitoso");
+//        boolean band;
+//        band=this.cLogin.Registrar(nombre, apellido, Email, Clave);
+//        if (band){
+//            JOptionPane.showMessageDialog(null,  "registro exitoso");
+//        }else{
+//            
+//            JOptionPane.showMessageDialog(null, "no se pudo registrar al usuario");
+//        } 
+//        
+        
+        int resultado;
+        resultado= cLogin.RegistrarMysql(nombre, apellido, Email, Clave);
+        if(resultado != 0){
+            JOptionPane.showMessageDialog(null, "registro exitoso");
         }else{
-            
-            JOptionPane.showMessageDialog(null, "no se pudo registrar al usuario");
-        } 
+            JOptionPane.showMessageDialog(null, "nbo se pudo registrar");
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btmSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmSalirActionPerformed
